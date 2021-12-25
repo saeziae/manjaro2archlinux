@@ -40,5 +40,5 @@ pacman -Syyuu
 pacman -Sy linux linux-headers neofetch
 pacman -Rdd $(pacman -Qq | grep 'manjaro')
 pacman -Syyuu
-sed 's/^GRUB_THEME/#GRUB_THEME/g' /etc/default/grub -i && grub-mkconfig 
+sed 's/^GRUB_THEME/#GRUB_THEME/g' /etc/default/grub -i && grub-mkconfig -o /boot/grub/grub.cfg
 neofetch
