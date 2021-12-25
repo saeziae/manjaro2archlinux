@@ -2,5 +2,5 @@
  Convert your manjaro to archlinux
 
 ```sh
-chmod +x ./manjaro2arch.sh && sudo ./manjaro2arch.sh
+curl https://raw.githubusercontent.com/saeziae/manjaro2archlinux/main/manjaro2arch.sh | sudo bash
 ```
