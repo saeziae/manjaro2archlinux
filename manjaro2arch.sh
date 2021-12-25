@@ -38,5 +38,5 @@ DISTRIB_RELEASE=rolling
 DISTRIB_DESCRIPTION="Arch Linux"' > /etc/lsb-release
 pacman -Syyu
 pacman -Sy linux linux-headers neofetch
-pacman -Rdd $(pacman -Qq | grep '^manjaro')
+pacman -Rdd $(pacman -Qq | grep 'manjaro')
 neofetch
