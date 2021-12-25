@@ -36,7 +36,9 @@ echo 'LSB_VERSION=1.4
 DISTRIB_ID=Arch
 DISTRIB_RELEASE=rolling
 DISTRIB_DESCRIPTION="Arch Linux"' > /etc/lsb-release
-pacman -Syyu
+pacman -Syyuu
 pacman -Sy linux linux-headers neofetch
 pacman -Rdd $(pacman -Qq | grep 'manjaro')
+pacman -Syyuu
+sed 's/^GRUB_THEME/#GRUB_THEME/g' /etc/default/grub -i && grub-mkconfig 
 neofetch
