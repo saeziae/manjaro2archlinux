@@ -22,6 +22,8 @@ Include = /etc/pacman.d/mirrorlist
 [extra]
 Include = /etc/pacman.d/mirrorlist
 [community]
+Include = /etc/pacman.d/mirrorlist
+[multilib]
 Include = /etc/pacman.d/mirrorlist' > /etc/pacman.conf
 echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 echo 'NAME="Arch Linux"
@@ -37,8 +39,8 @@ DISTRIB_ID=Arch
 DISTRIB_RELEASE=rolling
 DISTRIB_DESCRIPTION="Arch Linux"' > /etc/lsb-release
 pacman -Syyuu
-pacman -Sy linux linux-headers neofetch
+pacman -Sy linux-lts linux-lts-headers neofetch breeze-grub
 pacman -Rdd $(pacman -Qq | grep 'manjaro')
-pacman -Syyuu
-sed 's/^GRUB_THEME/#GRUB_THEME/g' /etc/default/grub -i && grub-mkconfig -o /boot/grub/grub.cfg
+cp /usr/share/grub/themes/breeze /boot/grub/themes/
+sed 's/^GRUB_THEME.*$/GRUB_THEME="/boot/grub/themes/breeze/theme.txt"/g' /etc/default/grub -i && grub-mkconfig -o /boot/grub/grub.cfg
 neofetch
