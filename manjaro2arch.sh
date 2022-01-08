@@ -39,8 +39,8 @@ DISTRIB_ID=Arch
 DISTRIB_RELEASE=rolling
 DISTRIB_DESCRIPTION="Arch Linux"' > /etc/lsb-release
 pacman -Syyuu
-pacman -Sy linux-lts linux-lts-headers neofetch breeze-grub
-pacman -Rdd $(pacman -Qq | grep 'manjaro')
+pacman -Sy linux-lts linux-lts-headers neofetch breeze-grub breeze-gtk
+pacman -Rdd $(pacman -Qq | grep -E 'manjaro|breath')
 cp /usr/share/grub/themes/breeze /boot/grub/themes/
 sed 's/^GRUB_THEME.*$/GRUB_THEME="/boot/grub/themes/breeze/theme.txt"/g' /etc/default/grub -i && grub-mkconfig -o /boot/grub/grub.cfg
 neofetch
